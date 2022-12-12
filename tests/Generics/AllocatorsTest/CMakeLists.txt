@@ -3,7 +3,7 @@
 
 #include_directories(   /usr/include/apr-1       )
 
-set(proj "TestAnalyzer")
+set(proj "AllocatorsTest")
 
 add_executable(${proj}
 Application.cpp
@@ -24,3 +24,5 @@ Application.cpp
 target_link_libraries(${proj} Generics Logger)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})

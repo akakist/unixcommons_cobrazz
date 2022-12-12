@@ -2,9 +2,9 @@
 
 
 #include_directories(   /usr/include/apr-1       )
+set(proj "TestBoundMap")
 
-
-add_executable(TestBoundMap
+add_executable(${proj}
 Application.cpp
 
 )
@@ -20,6 +20,8 @@ Application.cpp
 
 
 
-target_link_libraries(TestBoundMap Generics Logger)
+target_link_libraries(${proj} Generics Logger)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})

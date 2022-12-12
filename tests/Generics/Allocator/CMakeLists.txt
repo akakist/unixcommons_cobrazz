@@ -2,7 +2,7 @@
 
 
 #include_directories(   /usr/include/apr-1       )
-set(proj "TestAnalyzer")
+set(proj "TestAllocator")
 
 
 add_executable(${proj}

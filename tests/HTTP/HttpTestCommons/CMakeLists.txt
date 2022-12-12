@@ -24,3 +24,5 @@ add_library(${proj} SHARED
 target_link_libraries(${proj} Generics Logger HTTP TestCommons)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})

@@ -2,9 +2,9 @@
 
 
 #include_directories(   /usr/include/apr-1       )
+set(proj TestAppUtils)
 
-
-add_executable(TestAppUtils
+add_executable(${proj}
 Application.cpp
 
 )
@@ -20,7 +20,7 @@ Application.cpp
 
 
 
-target_link_libraries(TestAppUtils Generics Logger)
+target_link_libraries(${proj} Generics Logger)
 
 
 add_test(NAME ${proj}

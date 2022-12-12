@@ -23,3 +23,5 @@ TestGeoIP.cpp
 target_link_libraries(${proj} Generics Logger Geoip)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})

@@ -3,9 +3,9 @@
 
 #include_directories(   /usr/include/apr-1       )
 
-
-add_executable(TestCRC
-TestCRC.cpp
+set(proj "TestCRC")
+add_executable(${proj}
+${proj}.cpp
 
 )
 #add_library(ApacheModule  SHARED
@@ -20,6 +20,8 @@ TestCRC.cpp
 
 
 
-target_link_libraries(TestCRC Generics Logger)
+target_link_libraries(${proj} Generics Logger)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})

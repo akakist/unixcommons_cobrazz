@@ -27,3 +27,5 @@ add_executable(${proj}
 target_link_libraries(${proj} Generics Logger HTTP HttpTestCommons TestCommons)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})

@@ -23,3 +23,5 @@ Main.cpp CommonClasses.cpp Tests.cpp
 target_link_libraries(${proj} Generics Logger HTTP TestCommons HttpTestCommons)
 
 
+add_test(NAME ${proj}
+         COMMAND ${proj})
