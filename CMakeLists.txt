@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 
-project (MetricsHTTPProvider)
+project (unixcommons)
 
 if(UNIX AND NOT APPLE)
 SET(LINUX true)
@@ -22,10 +22,7 @@ include_directories( /usr/local/include src)
 
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC ")
-link_directories( /usr/local/lib /home/alexander_belyalov/gears/build/lib )
-
-
-
+link_directories( /usr/local/lib  )
 
 
 ADD_SUBDIRECTORY(src)

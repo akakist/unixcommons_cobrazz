@@ -1,8 +1,3 @@
-#cmake_minimum_required (VERSION 2.6)
-
-
-#include_directories(   /usr/include/apr-1       )
-
 
 add_library(Generics  SHARED
   Allocator.cpp 
@@ -57,16 +52,6 @@ add_library(Generics  SHARED
 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
-
 
 
 target_link_libraries(Generics Sync  pthread crypto ev pcre dl)

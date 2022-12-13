@@ -1,8 +1,3 @@
-#cmake_minimum_required (VERSION 2.6)
-
-
-#include_directories(   /usr/include/apr-1       )
-
 
 add_library(HTTP  SHARED
   Http.cpp 
@@ -16,15 +11,6 @@ add_library(HTTP  SHARED
   UrlAddress.cpp 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
 
 
 
