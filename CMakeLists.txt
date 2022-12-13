@@ -16,8 +16,24 @@ endif()
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     include(CTest)
 endif()
+ set(CMAKE_MODULE_PATH
+    ${CMAKE_MODULE_PATH}
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules
+  )
 
 
+find_package(ACE REQUIRED)
+find_package(OpenSSL REQUIRED)
+find_package(XercesC REQUIRED)
+find_package(BZip2 REQUIRED)
+find_package(GeoIP REQUIRED)
+find_package(Event REQUIRED)
+find_package(NetSNMP REQUIRED)
+find_package(PCRE REQUIRED)
+find_package(EV REQUIRED)
+find_package(Threads REQUIRED)
+
+#SNMPAgent   pthread  netsnmpagent netsnmp
 include_directories( /usr/local/include src)
 
 
