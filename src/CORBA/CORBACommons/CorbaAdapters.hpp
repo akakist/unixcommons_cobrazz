@@ -11,7 +11,8 @@
 
 #include <Generics/Hash.hpp>
 
-#include <CORBACommons/CorbaObjectRef.hpp>
+//#include <CORBACommons/CorbaObjectRefC.h>
+#include <CorbaObjectRefC.h>
 
 
 namespace CORBACommons

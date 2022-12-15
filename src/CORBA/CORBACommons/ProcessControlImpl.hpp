@@ -11,7 +11,8 @@
 
 #include <Logger/ActiveObjectCallback.hpp>
 
-#include <CORBACommons/ProcessControl_s.hpp>
+//#include <CORBACommons/ProcessControl_s.hpp>
+#include <ProcessControlS.h>
 #include <CORBACommons/ServantImpl.hpp>
 
 

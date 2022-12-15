@@ -33,7 +33,9 @@ find_package(PCRE REQUIRED)
 find_package(EV REQUIRED)
 find_package(Threads REQUIRED)
 
-#SNMPAgent   pthread  netsnmpagent netsnmp
+find_package(IDL REQUIRED)
+
+#find_package(OpenDDS REQUIRED)
 include_directories( /usr/local/include src)
 
 
