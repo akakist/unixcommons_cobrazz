@@ -3,7 +3,7 @@
 #include <eh/Exception.hpp>
 #include <Stream/MemoryStream.hpp>
 #include <Generics/Time.hpp>
-#include <CORBACommons/Stats.hpp>
+#include <StatsC.h>
 
 
 namespace

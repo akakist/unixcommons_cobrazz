@@ -6,3 +6,7 @@
 add_library(StatsTool  SHARED
 Application.cpp
 )
+
+target_link_libraries( StatsTool CORBACommons 
+    )
+

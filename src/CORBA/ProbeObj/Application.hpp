@@ -11,7 +11,6 @@
 
 #include <CORBACommons/CorbaAdapters.hpp>
 
-
 /**
  * Class which tests and shutdowns CORBA server processes by means of
  * CORBACommons::IProcessControl interface usage.

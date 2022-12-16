@@ -12,7 +12,7 @@
 
 #include <Logger/StreamLogger.hpp>
 
-#include <CORBACommons/ProcessControl.hpp>
+#include <ProcessControlC.h>
 #include <CORBAConfigParser/ParameterConfig.hpp>
 
 #include "Application.hpp"

@@ -5,7 +5,8 @@ set(IDL_FOUND TRUE)
 
 function(add_idl _target _idlfile)
     get_filename_component(IDL_FILE_NAME_WE ${_idlfile} NAME_WE)
-    set(MIDL_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/Generated)
+#    set(MIDL_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/Generated)
+    set(MIDL_OUTPUT_PATH ${IDL_DIRECTORY})
     set(MIDL_OUTPUT ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}_i.h)
 
     if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
@@ -24,6 +25,7 @@ function(add_idl _target _idlfile)
        COMMAND tao_idl ARGS  ${CMAKE_CURRENT_LIST_DIR}/${_idlfile} -o ${MIDL_OUTPUT_PATH} ${MIDL_FLAGS} 
        #/h ${MIDL_OUTPUT}
        DEPENDS ${CMAKE_CURRENT_LIST_DIR}/${_idlfile}
+#       DEPENDS ${IDL_FILE_NAME_WE}S.cpp
        VERBATIM
        )
 #       MESSAGE("command idl " ${_idlfile})
@@ -79,12 +81,14 @@ function(add_idl _target _idlfile)
         add_custom_target(${FINDIDL_TARGET} DEPENDS ${MIDL_OUTPUT} SOURCES ${_idlfile})
     endif()
     
-    add_library(${_target} INTERFACE)
+    add_library(${_target} STATIC 
+    )
     add_dependencies(${_target} ${FINDIDL_TARGET})
     target_include_directories(${_target} INTERFACE ${MIDL_OUTPUT_PATH})
     target_sources(${_target} 
     PUBLIC 	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}C.cpp
     PUBLIC	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}S.cpp
     )
+    #target_include_directories(${MIDL_OUTPUT_PATH})
 
 endfunction()
