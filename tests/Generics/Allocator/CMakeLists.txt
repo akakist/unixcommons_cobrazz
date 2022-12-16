@@ -9,16 +9,6 @@ add_executable(${proj}
 Application.cpp
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
-
 
 
 target_link_libraries(${proj} Generics Logger)

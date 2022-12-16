@@ -73,3 +73,5 @@ Thumbs.db
 
 qt/build-mp-Desktop_Qt_5_15_2_clang_64bit-Debug/
 Build/
+OpenSBE/
+autom4te.cache/

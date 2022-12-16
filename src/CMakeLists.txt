@@ -1,6 +1,5 @@
 #cmake_minimum_required (VERSION 2.6)
 
-set(IDL_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/IDL)
 
 ADD_SUBDIRECTORY(HTTP)
 

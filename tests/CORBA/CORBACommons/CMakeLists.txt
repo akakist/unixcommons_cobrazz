@@ -1,7 +1,7 @@
 #cmake_minimum_required (VERSION 2.6)
 
 
-#ADD_SUBDIRECTORY(CrashCall)
+ADD_SUBDIRECTORY(CrashCall)
 #ADD_SUBDIRECTORY(InfResolve)
 #ADD_SUBDIRECTORY(Init)
 #ADD_SUBDIRECTORY(Memory)

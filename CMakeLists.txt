@@ -38,6 +38,9 @@ find_package(IDL REQUIRED)
 #find_package(OpenDDS REQUIRED)
 include_directories( /usr/local/include src src/CORBA)
 
+set(IDL_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/IDL_COMMON)
+
+
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC ")
 link_directories( /usr/local/lib  )

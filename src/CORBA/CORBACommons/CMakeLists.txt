@@ -1,7 +1,7 @@
 #cmake_minimum_required (VERSION 2.6)
-add_idl(StatsIDL Stats.idl)
-add_idl(CorbaObjectRefIDL CorbaObjectRef.idl)
-add_idl(ProcessControlIDL ProcessControl.idl)
+add_idl(StatsIDL Stats.idl ${IDL_DIRECTORY})
+add_idl(CorbaObjectRefIDL CorbaObjectRef.idl ${IDL_DIRECTORY})
+add_idl(ProcessControlIDL ProcessControl.idl ${IDL_DIRECTORY})
 
 
 add_library(CORBACommons  SHARED

@@ -6,7 +6,7 @@
 #include <CORBACommons/ProcessControlImpl.hpp>
 #include <CORBACommons/CorbaAdapters.hpp>
 
-#include "TestCrash_s.hpp"
+#include "TestCrashS.h"
 
 
 namespace CORBATest

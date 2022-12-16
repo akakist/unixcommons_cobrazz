@@ -1,7 +1,7 @@
 #cmake_minimum_required (VERSION 2.6)
 
 
-#include_directories(   /usr/include/apr-1       )
+include_directories( ${IDL_DIRECTORY}  . )
 
 set(proj "CORBACrashCallClient")
 
