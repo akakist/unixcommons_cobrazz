@@ -36,7 +36,7 @@ find_package(Threads REQUIRED)
 find_package(IDL REQUIRED)
 
 #find_package(OpenDDS REQUIRED)
-include_directories( /usr/local/include src)
+include_directories( /usr/local/include src src/CORBA)
 
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fPIC ")
