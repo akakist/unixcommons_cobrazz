@@ -82,13 +82,15 @@ function(add_idl _target _idlfile)
     endif()
     
     add_library(${_target} STATIC 
+	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}C.cpp
+	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}S.cpp
     )
     add_dependencies(${_target} ${FINDIDL_TARGET})
     target_include_directories(${_target} INTERFACE ${MIDL_OUTPUT_PATH})
-    target_sources(${_target} 
-    PUBLIC 	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}C.cpp
-    PUBLIC	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}S.cpp
-    )
+#    target_sources(${_target} 
+#    PUBLIC 	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}C.cpp
+#    PUBLIC	${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}S.cpp
+#    )
     #target_include_directories(${MIDL_OUTPUT_PATH})
 
 endfunction()
