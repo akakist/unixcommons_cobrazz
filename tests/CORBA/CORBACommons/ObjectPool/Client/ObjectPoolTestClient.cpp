@@ -12,7 +12,7 @@
 
 #include <TestCommons/MTTester.hpp>
 
-#include "../Server/Simple.hpp"
+#include "tests/ObjectPool/Simple.hpp"
 
 
 using namespace CORBACommons;
