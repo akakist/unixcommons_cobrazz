@@ -1,7 +1,8 @@
 #cmake_minimum_required (VERSION 2.6)
-add_idl(TestCrashIDL TestCrash.idl ${TEST_IDL_DIRECTORY})
 
 set(proj "TestCrashServer")
+
+add_idl(TestCrashIDL TestCrash.idl ${IDL_DIRECTORY}/tests/CrashCall)
 
 add_executable(${proj}
 Application.cpp

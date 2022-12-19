@@ -39,6 +39,7 @@ find_package(IDL REQUIRED)
 include_directories( /usr/local/include src src/CORBA)
 
 set(IDL_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/IDL_COMMON)
+include_directories(${IDL_DIRECTORY})
 
 
 

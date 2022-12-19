@@ -22,11 +22,17 @@ function(add_idl _target _idlfile target_dir)
 #	${IDL_FILE_NAME_WE}C.cpp
 #	${IDL_FILE_NAME_WE}S.cpp
 #    )
-    set (MIDL_FLAGS "-Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp ")
+#    set (MIDL_FLAGS "-Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp ")
+    
+#    add_custom_target(${TGT} ALL
+#    COMMAND ${CMAKE_COMMAND} -E make_directory ${target_dir}
+#    )
+    file(MAKE_DIRECTORY ${target_dir})
+    execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${target_dir})
     set (SRC ${CMAKE_CURRENT_LIST_DIR}/${_idlfile})
     add_custom_command(
        OUTPUT ${MIDL_OUTPUT} ${OUTPUTC} ${OUTPUTS}
-       COMMAND tao_idl ARGS  -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp   ${SRC} -o ${MIDL_OUTPUT_PATH} 
+       COMMAND tao_idl ARGS  -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp  -I ${PROJECT_SOURCE_DIR}/src/CORBA  ${SRC} -o ${MIDL_OUTPUT_PATH} 
        #${MIDL_FLAGS} 
        
 #/usr/bin/tao_idl -o . -I../../../../src/CORBA -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp ../../../../src/CORBA/CORBACommons/CorbaObjectRef.idl       
@@ -34,6 +40,7 @@ function(add_idl _target _idlfile target_dir)
 #       DEPENDS ${_target}_z1 
 #       DEPENDS ${OUTPUTC} ${OUTPUTS}
        DEPENDS  ${FINDIDL_TARGET}  
+       #${TGT} 
        #${_target}_z1
 #       DEPENDS  ${_target}
 #       VERBATIM
