@@ -8,7 +8,7 @@
 #include <CORBACommons/CorbaAdapters.hpp>
 #include <CORBAConfigParser/ParameterConfig.hpp>
 
-#include "../Server/TestCrash.hpp"
+#include "TestCrashC.h"
 
 
 int

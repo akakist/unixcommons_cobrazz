@@ -22,16 +22,22 @@ function(add_idl _target _idlfile target_dir)
 #	${IDL_FILE_NAME_WE}C.cpp
 #	${IDL_FILE_NAME_WE}S.cpp
 #    )
+    set (SRC ${CMAKE_CURRENT_LIST_DIR}/${_idlfile})
     add_custom_command(
        OUTPUT ${MIDL_OUTPUT} ${OUTPUTC} ${OUTPUTS}
-       COMMAND tao_idl ARGS  ${CMAKE_CURRENT_LIST_DIR}/${_idlfile} -o ${MIDL_OUTPUT_PATH} ${MIDL_FLAGS} 
+       COMMAND tao_idl ARGS  ${SRC} -o ${MIDL_OUTPUT_PATH} ${MIDL_FLAGS} 
        
        #/h ${MIDL_OUTPUT}
-       DEPENDS ${CMAKE_CURRENT_LIST_DIR}/${_idlfile}
-#       DEPENDS ${MIDL_OUTPUT}
-       VERBATIM
+#       DEPENDS ${_target}_z1 
+#       DEPENDS ${OUTPUTC} ${OUTPUTS}
+       DEPENDS  ${FINDIDL_TARGET}  
+       #${_target}_z1
+#       DEPENDS  ${_target}
+#       VERBATIM
        )
-#       add_dependencies(${OUTPUTS} ${CMAKE_CURRENT_LIST_DIR}/${_idlfile})
+#    add_custom_target( ${_target}_z1  DEPENDS ${OUTPUTC} ${OUTPUTS} SOURCES ${SRC} )
+
+#       add_dependencies(${OUTPUTS} ${SRC})
 #       add_dependencies(${OUTPUTC} ${CMAKE_CURRENT_LIST_DIR}/${_idlfile})
 
 #       MESSAGE("command idl " ${_idlfile})

@@ -1,7 +1,6 @@
 #cmake_minimum_required (VERSION 2.6)
 add_idl(TestCrashIDL TestCrash.idl ${TEST_IDL_DIRECTORY})
 
-include_directories(${TEST_IDL_DIRECTORY})
 set(proj "TestCrashServer")
 
 add_executable(${proj}

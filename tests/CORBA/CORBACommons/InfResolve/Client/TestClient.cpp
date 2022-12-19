@@ -1,7 +1,7 @@
 #include <iostream>
 #include <signal.h>
 //#include <sys/wait.h>
-#include "client.hpp"
+#include "clientC.h"
 
 #ifndef __USE_GNU
 #define __USE_GNU

@@ -2,8 +2,8 @@
 #include <iostream>
 #include <signal.h>
 #include <dirent.h>
-#include "server_s.hpp"
-#include "server.hpp"
+#include "serverS.h"
+#include "serverC.h"
 
 class Echo_i : public POA_Test::Echo
 {
