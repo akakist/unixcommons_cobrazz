@@ -1,25 +1,7 @@
-#cmake_minimum_required (VERSION 2.6)
+set(proj "Sync")
 
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(Sync  SHARED
+add_library(${proj}  SHARED
   Condition.cpp 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
-
-
-
-#target_link_libraries(HTTP String)
-
-
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})

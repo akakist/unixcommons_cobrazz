@@ -1,10 +1,5 @@
-#cmake_minimum_required (VERSION 2.6)
-
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(Stream  SHARED
+set(proj "Stream")
+add_library(${proj}  SHARED
   BinaryStream.cpp 
   BzlibStreams.cpp 
   FileStreamBuf.cpp 
@@ -12,14 +7,7 @@ add_library(Stream  SHARED
   SocketStream.cpp 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-target_link_libraries(Stream z bz2 ACE)
+target_link_libraries(${proj} z bz2 ACE)
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})
 
 

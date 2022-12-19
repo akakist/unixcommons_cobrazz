@@ -1,5 +1,5 @@
-
-add_library(KoreanSegmentor  SHARED
+set(proj "KoreanSegmentor")
+add_library(${proj}  SHARED
   Korean.cpp 
   Klt.cpp 
   Moran.cpp 
@@ -7,6 +7,8 @@ add_library(KoreanSegmentor  SHARED
 
 )
 
-target_link_libraries(KoreanSegmentor Generics)
+target_link_libraries(${proj} Generics)
+
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})
 
 

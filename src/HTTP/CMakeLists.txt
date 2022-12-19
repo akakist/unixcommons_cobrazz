@@ -1,5 +1,5 @@
-
-add_library(HTTP  SHARED
+set (proj "HTTP")
+add_library(${proj}  SHARED
   Http.cpp 
   HttpAsync.cpp 
   HttpAsyncPool.cpp 
@@ -14,6 +14,7 @@ add_library(HTTP  SHARED
 
 
 
-target_link_libraries(HTTP Generics Stream event)
+target_link_libraries(${proj} Generics Stream event)
 
 
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})

@@ -1,10 +1,6 @@
-#cmake_minimum_required (VERSION 2.6)
+set(proj "String")
 
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(String  SHARED
+add_library(${proj}  SHARED
   
   
     Analyzer.cpp 
@@ -32,14 +28,6 @@ add_library(String  SHARED
   UTF8IsTitleLetter.cpp 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
+target_link_libraries(${proj} Generics pcre)
 
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-target_link_libraries(String Generics pcre)
-
-
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})

@@ -1,9 +1,10 @@
+set(proj "Profiler")
 
-
-add_library(Profiler  SHARED
+add_library(${proj}  SHARED
     Lib/Profiler.cpp
     Parser/Parser.cpp
 )
-target_link_libraries(Profiler pthread)
+target_link_libraries(${proj} pthread)
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})
 
 

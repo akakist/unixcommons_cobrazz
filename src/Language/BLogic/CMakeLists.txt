@@ -1,9 +1,11 @@
 
-add_library(BLogic  SHARED
+set(proj "BLogic")
+
+add_library(${proj}  SHARED
 NormalizeTrigger.cpp  
   
 )
 
-target_link_libraries(BLogic Generics)
+target_link_libraries(${proj} Generics)
 
 

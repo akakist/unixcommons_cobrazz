@@ -1,5 +1,6 @@
+set(proj "Generics")
 
-add_library(Generics  SHARED
+add_library(${proj}  SHARED
   Allocator.cpp 
   ActiveObject.cpp 
   AppUtils.cpp 
@@ -54,6 +55,7 @@ add_library(Generics  SHARED
 )
 
 
-target_link_libraries(Generics Sync  pthread crypto ev pcre dl)
+target_link_libraries(${proj} Sync  pthread crypto ev pcre dl)
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})
 
 

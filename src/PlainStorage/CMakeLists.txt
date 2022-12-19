@@ -1,27 +1,12 @@
-#cmake_minimum_required (VERSION 2.6)
+set(proj "PlainStorage")
 
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(PlainStorage  SHARED
+add_library(${proj}  SHARED
   BlockFileAdapter.cpp 
   Map.cpp 
 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
+target_link_libraries(${proj} Generics)
 
 
-
-target_link_libraries(PlainStorage Generics)
-
-
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})

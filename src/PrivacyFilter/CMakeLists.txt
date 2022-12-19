@@ -1,24 +1,11 @@
-#cmake_minimum_required (VERSION 2.6)
+set(proj "PrivacyFilter")
 
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(PrivacyFilter  SHARED
+add_library(${proj}  SHARED
     Filter.cpp
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
 
 
+target_link_libraries(${proj} crypto)
 
-target_link_libraries(PrivacyFilter crypto)
 
-
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})

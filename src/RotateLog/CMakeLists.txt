@@ -1,24 +1,10 @@
-#cmake_minimum_required (VERSION 2.6)
+set(proj "RotateLog")
 
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(RotateLog  SHARED
+add_library(${proj}  SHARED
     RotateLog.cpp
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
 
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
+target_link_libraries(${proj}  Generics Logger)
 
-#link_directories()
-
-
-
-target_link_libraries(RotateLog  Generics Logger)
-# Stream event
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})
 

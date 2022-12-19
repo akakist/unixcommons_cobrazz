@@ -1,10 +1,6 @@
-#cmake_minimum_required (VERSION 2.6)
+set(proj "Logger")
 
-
-#include_directories(   /usr/include/apr-1       )
-
-
-add_library(Logger  SHARED
+add_library(${proj}  SHARED
   ActiveObjectCallback.cpp 
   DescriptorLogger.cpp 
   DistributorLogger.cpp 
@@ -16,18 +12,9 @@ add_library(Logger  SHARED
   Syslog.cpp 
 
 )
-#add_library(ApacheModule  SHARED
-#Module.cpp
-
-#)
-#add_library(PreloadACE  SHARED
-#PreloadACE.cpp
-#)
-
-#link_directories()
 
 
+target_link_libraries(${proj} Generics pthread)
 
-target_link_libraries(Logger Generics pthread)
 
-
+install(TARGETS ${proj} DESTINATION ${INSTALL_LIB})
