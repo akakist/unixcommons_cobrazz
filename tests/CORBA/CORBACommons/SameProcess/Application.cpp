@@ -1,4 +1,4 @@
-#include "TestInt2_s.hpp"
+#include "tests/SameProcess/TestInt2_s.hpp"
 
 #include "../Init/Init.hpp"
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "echo.hpp"
+#include "tests/DynAny/echo.hpp"
 
 int
 main(int argc, char **argv)

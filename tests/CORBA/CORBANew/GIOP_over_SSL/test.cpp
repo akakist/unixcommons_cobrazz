@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "echo.hpp"
+#include "tests/echo.hpp"
 #ifdef ORB_OMNI
 #include <omniORB4/sslContext.h>
 #endif
