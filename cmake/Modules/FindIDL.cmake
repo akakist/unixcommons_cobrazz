@@ -8,8 +8,8 @@ function(add_idl _target _idlfile target_dir)
 #    set(MIDL_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/Generated)
     set(MIDL_OUTPUT_PATH ${target_dir})
     set(MIDL_OUTPUT ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}_i.h)
-    set(OUTPUTC ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}C.cpp)
-    set(OUTPUTS ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}S.cpp)
+    set(OUTPUTC ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}.cpp)
+    set(OUTPUTS ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}_s.cpp)
 
     if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
         set(MIDL_ARCH win32)
@@ -22,11 +22,14 @@ function(add_idl _target _idlfile target_dir)
 #	${IDL_FILE_NAME_WE}C.cpp
 #	${IDL_FILE_NAME_WE}S.cpp
 #    )
+    set (MIDL_FLAGS "-Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp ")
     set (SRC ${CMAKE_CURRENT_LIST_DIR}/${_idlfile})
     add_custom_command(
        OUTPUT ${MIDL_OUTPUT} ${OUTPUTC} ${OUTPUTS}
-       COMMAND tao_idl ARGS  ${SRC} -o ${MIDL_OUTPUT_PATH} ${MIDL_FLAGS} 
+       COMMAND tao_idl ARGS  -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp   ${SRC} -o ${MIDL_OUTPUT_PATH} 
+       #${MIDL_FLAGS} 
        
+#/usr/bin/tao_idl -o . -I../../../../src/CORBA -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp ../../../../src/CORBA/CORBACommons/CorbaObjectRef.idl       
        #/h ${MIDL_OUTPUT}
 #       DEPENDS ${_target}_z1 
 #       DEPENDS ${OUTPUTC} ${OUTPUTS}

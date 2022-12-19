@@ -12,7 +12,7 @@
 #include <Generics/Hash.hpp>
 
 //#include "../CORBACommons/CorbaObjectRefC.h"
-#include <CorbaObjectRefC.h>
+#include <CorbaObjectRef.hpp>
 
 
 namespace CORBACommons
