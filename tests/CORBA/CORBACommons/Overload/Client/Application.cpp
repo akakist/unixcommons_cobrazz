@@ -19,7 +19,7 @@
 
 #include <TestCommons/MTTester.hpp>
 
-#include "../Server/TestInt.hpp"
+#include "tests/Overload/TestInt.hpp"
 #include "Application.hpp"
 
 #define USE_EXTENDED_ADAPTER

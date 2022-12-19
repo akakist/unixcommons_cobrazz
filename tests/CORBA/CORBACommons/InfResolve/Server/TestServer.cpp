@@ -2,8 +2,8 @@
 #include <iostream>
 #include <signal.h>
 #include <dirent.h>
-#include "serverS.h"
-#include "serverC.h"
+#include "tests/InfResolve/server_s.hpp"
+#include "tests/InfResolve/server.hpp"
 
 class Echo_i : public POA_Test::Echo
 {

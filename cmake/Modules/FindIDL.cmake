@@ -7,7 +7,7 @@ function(add_idl _target _idlfile target_dir)
     get_filename_component(IDL_FILE_NAME_WE ${_idlfile} NAME_WE)
 #    set(MIDL_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/Generated)
     set(MIDL_OUTPUT_PATH ${target_dir})
-    set(MIDL_OUTPUT ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}_i.h)
+    set(MIDL_OUTPUT ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}.ipp)
     set(OUTPUTC ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}.cpp)
     set(OUTPUTS ${MIDL_OUTPUT_PATH}/${IDL_FILE_NAME_WE}_s.cpp)
 
@@ -30,21 +30,41 @@ function(add_idl _target _idlfile target_dir)
     file(MAKE_DIRECTORY ${target_dir})
     execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory ${target_dir})
     set (SRC ${CMAKE_CURRENT_LIST_DIR}/${_idlfile})
+    set(FINDIDL_TARGET ${_target}_gen)
+    add_custom_target(${FINDIDL_TARGET} DEPENDS "${OUTPUTS}" )
+#    add_custom_target(${_target}_ggg COMMAND "touch" "${OUTPUTS}")
+    add_custom_target(${_target}_ggg DEPENDS ${OUTPUTS})
+
+# SOURCES ${_idlfile}
     add_custom_command(
        OUTPUT ${MIDL_OUTPUT} ${OUTPUTC} ${OUTPUTS}
        COMMAND tao_idl ARGS  -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp  -I ${PROJECT_SOURCE_DIR}/src/CORBA  ${SRC} -o ${MIDL_OUTPUT_PATH} 
        #${MIDL_FLAGS} 
+
+#####################
+#       add_custom_command(OUTPUT "${SRC}" COMMAND ${CMAKE_COMMAND} -E touch "${SRC}") #More reliable touch, use cmake itself to touch the file
+#add_custom_target(generate_version_h DEPENDS "${SRC}")
+#add_executable(myprog ${test_SOURCES})
+#add_dependencies(myprog generate_version_h)
+##################       
+       
+       
        
 #/usr/bin/tao_idl -o . -I../../../../src/CORBA -Sp -in -ci .ipp -cs .cpp -hc .hpp -hs _s.hpp -ss _s.cpp ../../../../src/CORBA/CORBACommons/CorbaObjectRef.idl       
        #/h ${MIDL_OUTPUT}
 #       DEPENDS ${_target}_z1 
 #       DEPENDS ${OUTPUTC} ${OUTPUTS}
-       DEPENDS  ${FINDIDL_TARGET}  
+    DEPENDS ${_target}_ggg
+#    DEPENDS ${SRC}
+    #${FINDIDL_TARGET}
+#       DEPENDS    ${SRC}
        #${TGT} 
+       #  ${FINDIDL_TARGET}
        #${_target}_z1
 #       DEPENDS  ${_target}
 #       VERBATIM
        )
+#        add_dependencies(${FINDIDL_TARGET} ${SRC})
 #    add_custom_target( ${_target}_z1  DEPENDS ${OUTPUTC} ${OUTPUTS} SOURCES ${SRC} )
 
 #       add_dependencies(${OUTPUTS} ${SRC})
@@ -52,7 +72,7 @@ function(add_idl _target _idlfile target_dir)
 
 #       MESSAGE("command idl " ${_idlfile})
 
-    set(FINDIDL_TARGET ${_target}_gen)
+    
 
     cmake_parse_arguments(FINDIDL "" "TLBIMP" "" ${ARGN})
  
@@ -100,7 +120,7 @@ function(add_idl _target _idlfile target_dir)
             IMPORTED_COMMON_LANGUAGE_RUNTIME "CSharp"
             )
     else()
-        add_custom_target(${FINDIDL_TARGET} DEPENDS ${MIDL_OUTPUT} SOURCES ${_idlfile} )
+#        add_custom_target(${FINDIDL_TARGET} DEPENDS ${MIDL_OUTPUT} SOURCES ${_idlfile} )
     endif()
     add_library(${_target} STATIC
 #    ${IDL_FILE_NAME_WE}/${IDL_FILE_NAME_WE}S.cpp

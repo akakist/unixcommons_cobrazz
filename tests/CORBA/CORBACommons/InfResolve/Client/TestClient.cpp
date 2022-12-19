@@ -1,7 +1,7 @@
 #include <iostream>
 #include <signal.h>
 //#include <sys/wait.h>
-#include "clientC.h"
+#include "tests/InfResolve/client.hpp"
 
 #ifndef __USE_GNU
 #define __USE_GNU

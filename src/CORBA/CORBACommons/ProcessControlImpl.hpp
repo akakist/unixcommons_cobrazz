@@ -12,7 +12,7 @@
 #include <Logger/ActiveObjectCallback.hpp>
 
 //#include <CORBACommons/ProcessControl_s.hpp>
-#include <ProcessControl_s.hpp>
+#include <CORBACommons/ProcessControl_s.hpp>
 #include <CORBACommons/ServantImpl.hpp>
 
 

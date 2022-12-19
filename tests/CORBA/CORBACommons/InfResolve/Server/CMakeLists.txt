@@ -1,5 +1,5 @@
 #cmake_minimum_required (VERSION 2.6)
-add_idl(CORBAInfResolveServerIDL server.idl  ${TEST_IDL_DIRECTORY})
+add_idl(CORBAInfResolveServerIDL server.idl  ${IDL_DIRECTORY}/tests/InfResolve)
 
 set(proj "CORBAInfResolveServer")
 

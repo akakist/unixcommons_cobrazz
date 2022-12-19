@@ -11,8 +11,8 @@ Application.cpp
 
 
 
-target_link_libraries(${proj} Generics Logger )
-#Geoip TestCrashIDL CORBACommons CORBAConfigParser)
+target_link_libraries(${proj} Generics Logger  TestIntIDL CORBACommons CORBAConfigParser)
+#Geoip TestCrashIDL )
 
 add_test(NAME ${proj}
          COMMAND ${proj})

@@ -2,7 +2,7 @@
 
 set(proj "CORBAOverloadServer")
 
-add_idl(TestIntIDL TestInt.idl  ${TEST_IDL_DIRECTORY})
+add_idl(TestIntIDL TestInt.idl  ${IDL_DIRECTORY}/tests/Overload)
 
 include_directories(${IDL_DIRECTORY})
 add_executable(${proj}

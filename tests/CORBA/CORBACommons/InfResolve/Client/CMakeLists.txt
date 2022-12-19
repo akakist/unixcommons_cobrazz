@@ -1,5 +1,5 @@
 #cmake_minimum_required (VERSION 2.6)
-add_idl(CORBAInfResolveClientIDL client.idl  ${TEST_IDL_DIRECTORY})
+add_idl(CORBAInfResolveClientIDL client.idl  ${IDL_DIRECTORY}/tests/InfResolve)
 
 set(proj "CORBAInfResolveClient")
 
