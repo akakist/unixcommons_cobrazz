@@ -21,7 +21,7 @@ endif()
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules
   )
 
-set(INSTALL_DIR "~/unicommons-cobra-bin")
+set(INSTALL_DIR "~/unixcommons-cobrazz-bin")
 set(INSTALL_LIB ${INSTALL_DIR}/lib)
 set(INSTALL_BIN  ${INSTALL_DIR}/bin)
 
@@ -36,6 +36,7 @@ find_package(NetSNMP REQUIRED)
 find_package(PCRE REQUIRED)
 find_package(EV REQUIRED)
 find_package(Threads REQUIRED)
+find_package(USERVER REQUIRED)
 
 find_package(IDL REQUIRED)
 

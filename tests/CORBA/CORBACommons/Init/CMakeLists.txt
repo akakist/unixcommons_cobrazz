@@ -7,7 +7,7 @@ add_executable(${proj}
 Combined.cpp
 )
 
-target_link_libraries(${proj} CORBACommons  CORBAConfigParser TestIntIDL
+target_link_libraries(${proj} CORBACommons  CORBAConfigParser TestIntIDL ProcessControlIDL StatsIDL
 # CORBAInfResolveClientIDL
     )
 add_test(NAME ${proj}

@@ -122,11 +122,20 @@ function(add_idl _target _idlfile target_dir)
     else()
 #        add_custom_target(${FINDIDL_TARGET} DEPENDS ${MIDL_OUTPUT} SOURCES ${_idlfile} )
     endif()
-    add_library(${_target} STATIC
+    add_library(${_target} SHARED
 #    ${IDL_FILE_NAME_WE}/${IDL_FILE_NAME_WE}S.cpp
 #    ${IDL_FILE_NAME_WE}/${IDL_FILE_NAME_WE}C.cpp
 	${OUTPUTC} ${OUTPUTS}
     )    
+    target_link_libraries(
+	${_target}
+	ACE
+	TAO TAO_AnyTypeCode  TAO_CodecFactory TAO_CosEvent TAO_CosNaming TAO_CosNotification TAO_DynamicAny TAO_EndpointPolicy TAO_FaultTolerance
+	TAO_FT_ClientORB TAO_FT_ServerORB TAO_FTORB_Utils TAO_IORManip TAO_IORTable 
+	TAO_Messaging TAO_PI TAO_PI_Server TAO_PortableGroup TAO_PortableServer TAO_Security TAO_SSLIOP TAO_TC TAO_TC_IIOP TAO_Valuetype ACE_SSL 
+
+    )
+    install(TARGETS ${_target} DESTINATION ${INSTALL_LIB})
     #SOURCES 
     #${OUTPUTC} ${OUTPUTS} 
 #    add_library(${_target}LL STATIC
